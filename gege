@@ -3,7 +3,7 @@
 local playerName = game:GetService("Players").LocalPlayer.Name;
 local whitelistedNames = {
 ["Qoucx"] = true;
-["Qoucx"] = true;
+["Tyronethetird342"] = true;
 ["Qoucx"] = true;
 ["Qoucx"] = true;
 ["Qoucx"] = true;
