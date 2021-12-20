@@ -1,5 +1,6 @@
 local playerName = game:GetService("Players").LocalPlayer.Name;
 local whitelistedNames = {
+["mike_oxlong9227"]
 ["lolwut6omg9"]
 ["Luckyman9234"]
 ["RuminasValentine"]
