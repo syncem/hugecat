@@ -1,26 +1,3 @@
-local playerName = game:GetService("Players").LocalPlayer.Name;
-local whitelistedNames = {
-["Qoucx"] = true;
-["Luckyman9234"] = true;
-["Antlikesbeans"] = true;
-["RuminasValentine"] = true;
-["lolwut6omg9"] = true;
-["mike_oxlong9227"] = true;
-["Tyronethetird342"] = true;
-["QoucxFS"] = true;
-["antlikesbeans"] = true;
-["FounderErenYaeger"] = true;
-["sqpeedyy"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-}
-if not (whitelistedNames[playerName]) then
-game:GetService("Players").LocalPlayer:Kick("You are not whitelisted!")
-end
-
 local rconsoleprint = rconsoleprint;
 local rconsolename = rconsolename;
 local math_random = math.random;
