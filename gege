@@ -1,67 +1,14 @@
-local playerName = game:GetService("Players").LocalPlayer.Name;
-local whitelistedNames = {
-["mike_oxlong9227"]
-["lolwut6omg9"]
-["Luckyman9234"]
-["RuminasValentine"]
-["noobmanioh"] = true;
-["antlikesbeans"] = true;
-["Qoucx"] = true;
-["QoucxFS"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-["Qoucx"] = true;
-}
-if not (whitelistedNames[playerName]) then
-game:GetService("Players").LocalPlayer:Kick("You are not whitelisted!")
-end
-
---// Detects when someone executes 
-
-local webhookcheck =
-is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
-secure_load and "Sentinel" or
-KRNL_LOADED and "Krnl" or
-SONA_LOADED and "Sona" or
-"Unkown Executor"
-
-local url =
-"https://discord.com/api/webhooks/921819670837874730/DrlqI4E-HJ1ZiHoVBMf7AJ7gVfVvWe9mWcgd4A49a9rvWSBlrV9vToLTWwk4slmJw2tJ"
-local data = {
-["content"] = "-",
-["embeds"] = {
-	{
-		["title"] = "**Someone Executed The Generator!**",
-		["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
-		["type"] = "rich",
-		["color"] = tonumber(0x7269da),
-		["image"] = {
-			["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
-				tostring(game:GetService("Players").LocalPlayer.Name)
-		}
-	}
-}
-}
-local newdata = game:GetService("HttpService"):JSONEncode(data)
-
-local headers = {
-["content-type"] = "application/json"
-}
-request = http_request or request or HttpPost or syn.request
-local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-request(abcdef)
+--// localizations
 
 local rconsoleprint = rconsoleprint;
 local rconsolename = rconsolename;
+
 local math_random = math.random;
 local coroutine_wrap = coroutine.wrap;
 local task_wait = task.wait;
 local warn = warn;
+
+--// define init variables
 
 local code_count = 100000;
 local characters_list = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -69,9 +16,13 @@ local character_list_length = #characters_list;
 
 local redeem_remote = workspace.__THINGS.__REMOTES:WaitForChild("redeem merch code");
 
+--// create working codes file
+
 if not isfile("working_codes.txt") then
    writefile("working_codes.txt", "");
 end;
+
+--// function to generate a random 10 character code
 
 function generate_random_code()
   local code_string = "";
@@ -83,14 +34,17 @@ function generate_random_code()
   return "pet-" .. code_string;
 end;
 
+--// stuff to output debug data to the rconsole
 local checked_amount = 0;
 local working_amount = 0;
 
 local function output_debug_data()
-   rconsolename("Huge Cat Generator Made By Model and Sync | Checked: " .. checked_amount .. "/" .. code_count .. " | Working: " .. working_amount);
+   rconsolename("Huge Cat Generator | Checked: " .. checked_amount .. "/" .. code_count .. " | Working: " .. working_amount);
 end;
 
 output_debug_data();
+
+--// main bruteforce loop
 
 for index = 1, code_count do
    local random_code = generate_random_code();
