@@ -1,10 +1,14 @@
+--// localizations
 
 local rconsoleprint = rconsoleprint;
 local rconsolename = rconsolename;
+
 local math_random = math.random;
 local coroutine_wrap = coroutine.wrap;
 local task_wait = task.wait;
 local warn = warn;
+
+--// define init variables
 
 local code_count = 100000;
 local characters_list = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -12,9 +16,13 @@ local character_list_length = #characters_list;
 
 local redeem_remote = workspace.__THINGS.__REMOTES:WaitForChild("redeem merch code");
 
+--// create working codes file
+
 if not isfile("working_codes.txt") then
    writefile("working_codes.txt", "");
 end;
+
+--// function to generate a random 10 character code
 
 function generate_random_code()
   local code_string = "";
@@ -26,6 +34,7 @@ function generate_random_code()
   return "pet-" .. code_string;
 end;
 
+--// stuff to output debug data to the rconsole
 local checked_amount = 0;
 local working_amount = 0;
 
@@ -34,6 +43,8 @@ local function output_debug_data()
 end;
 
 output_debug_data();
+
+--// main bruteforce loop
 
 for index = 1, code_count do
    local random_code = generate_random_code();
